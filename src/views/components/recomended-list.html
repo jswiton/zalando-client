@@ -1,0 +1,5 @@
+<ul ng-init="getRecommended(product.id)">
+	<li ng-repeat="recomended in recommendedProducts"><a href="product/{{recomended.id}}/{{recomended.shopUrl | formatZalandoUrl}}">{{recomended.name}}</a><br />
+		<img class="img-thumbnail" alt="Fota" src="{{recomended.media.images[0].smallUrl}}" />
+	</li>
+</ul>

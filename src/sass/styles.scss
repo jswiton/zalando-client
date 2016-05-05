@@ -1,0 +1,84 @@
+@import 'reset';
+@import 'partials/variables';
+@import 'fonts';
+@import 'partials/mixins';
+@import 'partials/animations';
+
+html {
+
+}
+body {
+	font-size: $body-font-size;
+	color: $primary-color;
+	font-family: $font-family-light;
+	line-height: $body-line-height;
+	margin: 9rem 4em 4em 4em;
+}
+
+h1, h2, h3, h4, h5, strong, b, .bold {
+	@include bold;
+}
+
+h1 {
+	font-size: 2.8rem;
+	line-height: 2.8rem;
+}
+
+h2 {
+	font-size: 2.6rem;
+	line-height: 2.6rem;
+}
+
+h3 {
+	font-size: 2.4rem;
+	line-height: 2.4rem;
+}
+
+h4 {
+	font-size: 2.2rem;
+	line-height: 2.2rem;
+}
+
+h5 {
+	font-size: 1rem;
+	line-height: 1rem;
+}
+
+p {
+	margin: 1em 0 1em 0;
+}
+
+.logo {
+    width: 60px;
+    height: 84px;
+    position: absolute;
+    top: 22px;
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.float {
+    -moz-animation: float 3s infinite ease-in-out;
+    -webkit-animation: float 3s infinite ease-in-out;
+    animation: float 3s infinite ease-in-out;
+}
+
+.shadow {
+    width: 35px;
+    height: 8px;
+    position: absolute;
+    top: 75px;
+    margin-left: 12px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.scale {
+    -moz-animation: scale 3s infinite ease-in-out;
+    -webkit-animation: scale 3s infinite ease-in-out;
+    animation: scale 3s infinite ease-in-out;
+}
+
+/* MOBILE */
+@import 'mediaqueries';

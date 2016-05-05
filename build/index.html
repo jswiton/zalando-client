@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl" class="no-js">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>found-shop.com</title>
+		<script type="text/javascript" src="/found-shop/build/scripts/vendor/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/found-shop/build/scripts/vendor/jquery.browser.min.js"></script>
+		<script type="text/javascript" src="/found-shop/src/scripts/vendor/SmoothScroll.js"></script>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/found-shop/build/styles/styles.min.css" type="text/css" rel="stylesheet">
+		<base href="/found-shop/build/">
+	</head>
+
+	<body ng-app="ShopApp">
+
+		<a href="/found-shop/build">
+			<div class="logo">
+				<img src="images/logo.png" alt="logo" class="float">
+				<div class="shadow scale"></div>
+			</div>
+		</a>
+
+		<div ng-include="'views/components/category-links.html'"></div>
+		<div ng-include="'views/components/search-form.html'"></div>
+
+		<div class="ng-view"></div>
+		
+		<script type="text/javascript" src="scripts/vendor/angular.1.5.0.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/angular-route.1.5.0.min.js"></script>
+		<script type="text/javascript" src="scripts/app.min.js"></script>
+		<script type="text/javascript" src="scripts/front.min.js"></script>
+	</body>
+</html>

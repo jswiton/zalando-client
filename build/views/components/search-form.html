@@ -1,0 +1,10 @@
+<div ng-controller="ProductsListController" class="form-group row">
+	<div class="col-md-2">
+		<input ng-model="filter.keywords" type="text" ng-enter="go('search/' + filter.category + '/' + index + 1 + '/' + filter.keywords)" class="form-control" placeholder="Czego dziś szukasz?" />
+	</div>
+
+	<div class="col-md-2">
+		<a class="btn btn-primary" href="search/{{filter.category}}/{{index + 1}}/{{filter.keywords}}">Znajdź !</a>
+	</div>
+
+</div>

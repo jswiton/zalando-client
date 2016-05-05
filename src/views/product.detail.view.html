@@ -1,0 +1,34 @@
+<!--back-link back="<- Wróć do listy produktów"></back-link-->
+
+<div ng-if="product" ng-contoller="productController" class="panel panel-default">
+   <h2>{{product.name}}</h2>
+   <h4>{{product.brand.name}}</h4>
+   <h5>{{product.genders | mapGender}}</h5>
+   <h6><strong>{{product.units[0].price.formatted}}</strong></h6>
+   <ul>
+    <li ng-repeat="image in product.media.images" style="display: inline;">
+      <img class="img-thumbnail" alt="Fota" src="{{image.mediumUrl}}" />
+    </li>
+   </ul>
+   <a class="btn btn-sm btn-success" target="_blank" href="{{product.shopUrl}}">Kup ten produkt</a>
+   <div>
+      <ul>
+          <li ng-if="product.color"><strong>kolor:</strong> {{product.color}}</li>
+          <li ng-repeat="attr in product.attributes"><strong>{{attr.name}}:</strong> {{attr.values.join(', ')}}</li>
+          <li><strong>numer produktu:</strong> {{product.id}}</li>
+      </ul>
+   </div>
+   <ul class="list-group">
+      <li ng-repeat="unit in product.units" ng-if="unit.available" class="list-group-item"><span ng-class="{ 'avaiable' : unit.stock > 0 }" class="badge">{{unit.stock}}</span>{{unit.size}}</li>
+    </ul>
+    <select ng-model="optionSelectedOne" ng-options="(obj.stock > 0 ? obj.size + ' / ' + obj.stock + ' szt.' : obj.size + ' / niedostepne') for obj in product.units">
+      <option value="">Rozmiary</option>
+    </select>
+    <div>
+    Zobacz więcej w: <a href="search/{{product.categoryKeys[3]}}">{{product.categoryKeys[3]}}</a></li>
+    <br />Zobacz wszystko producenta: <a href="search/{{product.categoryKeys[1]}}/brand/1/{{product.brand.key}}">{{product.brand.name}}</a></li>
+
+    <div ng-include="'views/components/recomended-list.html'"></div>
+
+  </div>
+</div>

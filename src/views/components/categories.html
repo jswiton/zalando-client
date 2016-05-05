@@ -1,0 +1,6 @@
+<ul>
+	<span ng-model="filter.category"><a href="search/{{categoriesList.parentKey}}/1">{{categoriesList.parentKey}}</a> / {{categoriesList.name}}</span>
+	<li ng-repeat="category in categoriesList.childKeys"><a href="search/{{category}}/1">{{category}}</a></li>
+</ul>
+
+<!--pre>{{recomendedFilters | json}}</pre-->

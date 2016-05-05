@@ -1,0 +1,24 @@
+<div class="form-group row">
+
+	<div class="col-md-2">
+		<a class="btn btn-primary" href="#" ng-click="reserFilters()">Wyczyść filtr</a>
+	</div><br /><br />
+
+	<div class="col-md-2">
+
+	  Cena od:
+	  <input ng-model="filter.priceFrom" ng-blur="reload()" type="text" class="form-control" />
+
+	  Cena do:
+	  <input ng-model="filter.priceTo" ng-blur="reload()" type="text" class="form-control" />
+	  <br />
+
+	 <select class="form-control"
+	 	ng-model="filter.colors.color"
+	 	ng-options="color.lookupCode as color.description for color in filter.lov_color"
+	 	ng-change="reload()" >
+      <option value="">Kolor</option>
+    </select>
+
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<nav ng-if="productsList.totalPages">
+  <ul class="pagination">
+    <li>
+      <a class="pagination-link prev active" ng-if="productsList.page > 1" href="search/{{filter.category}}/{{productsList.page - 1}}/{{filter.keywords}}">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      <span class="pagination-link prev deactive" ng-if="productsList.page <= 1">
+      	<span aria-hidden="true">&laquo;</span>
+      </span>
+    </li>
+    <li><a>Strona: {{productsList.page}} z {{productsList.totalPages}}</a></li>
+    <li>
+      <a class="pagination-link next active" ng-if="productsList.page < productsList.totalPages" href="search/{{filter.category}}/{{filter.brand == 'brand' ? filter.brand + '/' : ''}}{{productsList.page + 1}}{{filter.keywords != '' ? '/' + filter.keywords : ''}}{{filter.brand == 'brand' ? '/' + filter.brandKey : ''}}">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+      <span class="pagination-link next deactive" ng-if="productsList.page >= productsList.totalPages">
+      	<span aria-hidden="true">&raquo;</span>
+      </span>
+    </li>
+  </ul>
+</nav>
+  <div ng-if="productsList.totalPages" class="col-md-2">
+    <label>Sortuj wedłu:</label>
+    <select class="form-control"
+      ng-model="filter.sortMethods.sortMethod"
+      ng-options="sortMethod.lookupCode as sortMethod.description for sortMethod in filter.lov_sortMethod"
+      ng-change="reload()" >
+    </select>
+  </div>
+
+    <a class="pagination-link next active" ng-if="productsList.page < productsList.totalPages" href="search/{{filter.category}}/{{filter.brand == 'brand' ? filter.brand + '/' : ''}}{{productsList.page + 1}}{{filter.keywords != '' ? '/' + filter.keywords : ''}}{{filter.brand == 'brand' ? '/' + filter.brandKey : ''}}">
+      <span aria-hidden="true">Pokaż mi więcej</span>
+    </a>

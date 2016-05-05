@@ -1,0 +1,20 @@
+<div ng-if="productsList" class="panel panel-default">
+  <div class="panel-body"><strong>{{filter.category}} / </strong>Artykułów: {{productsList.totalElements}}<span ng-if="filter.keywords != ''"><strong> / Szukana fraza:</strong> {{filter.keywords}}</div></span></div>
+</div>
+
+<div ng-include="'views/components/pagination.html'"></div>
+
+<div class="row">
+  <a ng-repeat="product in productsList.content" href="product/{{product.id}}/{{product.shopUrl | formatZalandoUrl}}" class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img ng-if="product.categoryKeys.toString().indexOf('obuwie') > -1 || product.categoryKeys.toString().indexOf('akcesoria') > -1" class="img-thumbnail" alt="Product image" ng-src="{{product.media.images[0].mediumUrl}}" >
+      <img ng-if="product.categoryKeys.toString().indexOf('obuwie') == -1 && product.categoryKeys.toString().indexOf('akcesoria') == -1" class="img-thumbnail" alt="Product image" ng-src="{{product.media.images.length == 2 || product.media.images.length == 1  ? product.media.images[0].mediumUrl : product.media.images[2].mediumUrl}}" >
+      <div class="caption">
+        <h5><strong>{{product.brand.name}}</strong> <br /> {{product.name | limitTo: 29 }}{{product.name.length > 29 ? '...' : ''}}</h5>
+        <p><strong>{{product.units[0].price.formatted}}</strong></p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div ng-include="'views/components/pagination.html'"></div>
